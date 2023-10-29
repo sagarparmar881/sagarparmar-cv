@@ -33,6 +33,6 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           file-path: main.pdf
           owner: sagarparmar881
-          repo: latex-cv
+          repo: sagarparmar-latex-cv
           remote-dir: assets
           branch-name: master
