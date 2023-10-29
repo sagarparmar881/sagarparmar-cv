@@ -35,4 +35,4 @@ jobs:
           owner: sagarparmar881
           repo: latex-cv
           remote-dir: assets
-          branch-name: main
+          branch-name: master
