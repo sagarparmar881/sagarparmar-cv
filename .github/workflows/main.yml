@@ -1,8 +1,8 @@
 name: Build LaTeX document
 on:
   push:
-    paths-ignore:
-          - 'assets/'
+    paths:
+      - '**.tex'
 jobs:
   build_latex:
     runs-on: ubuntu-latest
