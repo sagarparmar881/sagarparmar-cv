@@ -16,15 +16,14 @@ jobs:
         with:
           name: PDF
           path: main.pdf
-      - name: Upload PDF to Google Drive
-        uses: sagarparmar881/upload-pdf-to-drive@main
-        with:
-          target: main.pdf
-          credentials: ${{ secrets.SVC_ACC_BASE64 }}
-          folderId: 1ErHXu--Ofgng1iCNw70JwWfyTt8GSCnY
-          #filename: sagar-parmar-cv.pdf # optional (defaults to upload.pdf)
-          #overwrite: true # optional (defaults to not overwrite)
-      
+      # - name: Upload PDF to Google Drive
+      #   uses: sagarparmar881/upload-pdf-to-drive@main
+      #   with:
+      #     target: main.pdf
+      #     credentials: ${{ secrets.SVC_ACC_BASE64 }}
+      #     folderId: 1ErHXu--Ofgng1iCNw70JwWfyTt8GSCnY
+      #     filename: sagar-parmar-cv.pdf # optional (defaults to upload.pdf)
+      #     overwrite: true # optional (defaults to not overwrite)
       - name: Setup node
         uses: actions/setup-node@v1
       - name: Upload to GitHub
