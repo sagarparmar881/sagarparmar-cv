@@ -1,0 +1,38 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_xelatex: true
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: main.pdf
+      - name: Upload PDF to Google Drive
+        uses: sagarparmar881/upload-pdf-to-drive@main
+        with:
+          target: main.pdf
+          credentials: ${{ secrets.SVC_ACC_BASE64 }}
+          folderId: 1ErHXu--Ofgng1iCNw70JwWfyTt8GSCnY
+          #filename: sagar-parmar-cv.pdf # optional (defaults to upload.pdf)
+          #overwrite: true # optional (defaults to not overwrite)
+      
+      - name: Setup node
+        uses: actions/setup-node@v1
+      - name: Upload to GitHub
+        uses: LasyIsLazy/github-upload-action@v0.1.0
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          file-path: main.pdf
+          owner: sagarparmar881
+          repo: latex-cv
+          remote-dir: assets
+          branch-name: main
